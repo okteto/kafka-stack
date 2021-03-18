@@ -1,0 +1,14 @@
+name: consumer
+labels:
+  app.kubernetes.io/component: consumer
+command: bash
+volumes:
+- /root/.cache/pip
+sync:
+- .:/usr/src/app
+reverse:
+- 9000:9000
+resources:
+  limits:
+    cpu: "1"
+    memory: 2Gi

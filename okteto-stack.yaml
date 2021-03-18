@@ -1,5 +1,14 @@
 name: kafka
 services:
+  producer:
+    public: true
+    image: okteto.dev/kafka-producer
+    build: producer
+    ports:
+      - 8080
+  consumer:
+    image: okteto.dev/kafka-consumer
+    build: consumer
   kafdrop:
     public: true
     image: obsidiandynamics/kafdrop:3.28.0-SNAPSHOT
