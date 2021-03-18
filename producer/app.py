@@ -4,13 +4,14 @@ import json
 
 app = Flask(__name__)
 producer = KafkaProducer(bootstrap_servers='kafka:9092')
+topic_name = 'messages'
 
 @app.route('/', methods=["POST"])
 def send():
     app.logger.info("received message")
     content = request.get_json()
     jd = json.dumps(content).encode('utf-8')
-    producer.send('messages', jd)
+    producer.send(topic_name, jd)
     app.logger.info("sent message")
     return jsonify({"status":"ok"})
 
