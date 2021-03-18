@@ -10,4 +10,20 @@ You can also do it from your terminal using the [Okteto CLI](https://github.com/
 okteto stack deploy
 ```
 
-Once you've deployed your stack, [login to Okteto Cloud](https://cloud.okteto.com) to see the state of your Okteto stack, logs, and endpoints. The stack also includes [Kafrop], a web UI for viewing Kafka topics and browsing consumer groups. You can access the endpoint [from your dashboard](https://cloud.okteto.com).
+Once you've deployed your stack, [login to Okteto Cloud](https://cloud.okteto.com) to see the state of your Okteto stack, logs, and endpoints. The stack includes:
+
+- A REST api that receives a JSON payload, and pushes it to a kakfa topic.
+- A consumer process that consumes the messages from the topic and prints them out.  
+- An instance of [Kafrop](https://github.com/obsidiandynamics/kafdrop), a web UI for viewing Kafka topics and browsing consumer groups. 
+
+You can access the endpoints [from your dashboard](https://cloud.okteto.com).
+
+## Try the App
+
+To try it out, send a JSON message to the producer service, replacing the URL with your own:
+
+```
+curl -X POST https://producer-cindylopez.cloud.okteto.net -H "Content-Type: application/json" -d '{"message":"hello world!"}'
+```
+
+The consumer service will then pick up the message you posted, and [log it in the dashboard](https://cloud.okteto.com).
