@@ -1,6 +1,6 @@
 name: producer
 labels:
-  app.kubernetes.io/component: producer
+  stack.okteto.com/service: producer
 command: bash
 environment:
 - FLASK_DEBUG=1
