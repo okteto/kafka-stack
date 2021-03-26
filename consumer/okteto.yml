@@ -1,6 +1,6 @@
 name: consumer
 labels:
-  app.kubernetes.io/component: consumer
+  stack.okteto.com/service: consumer
 command: bash
 volumes:
 - /root/.cache/pip
