@@ -1,0 +1,43 @@
+name: producer-consumer
+build:
+
+  consumer:
+    context: consumer
+    dockerfile: consumer/Dockerfile
+    image: okteto.dev/kafka-consumer
+
+  producer:
+    context: producer
+    dockerfile: producer/Dockerfile
+    image: okteto.dev/kafka-producer
+
+deploy:
+  compose:
+    file: docker-compose.yaml
+
+dev:
+  consumer:
+    image: okteto.dev/kafka-consumer
+    command: bash
+    workdir: /usr/src/app
+    sync:
+      - consumer:/usr/src/app
+    forward:
+      - 8080:8080
+    reverse:
+      - 9000:9000
+    volumes:
+      - /root/.cache/pip
+  producer:
+    image: okteto.dev/kafka-producer
+    command: bash
+    workdir: /usr/src/app
+    sync:
+      - producer:/usr/src/app
+    forward:
+      - 8080:8080
+    reverse:
+      - 9000:9000
+    volumes:
+      - /root/.cache/pip
+
