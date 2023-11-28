@@ -1,10 +1,6 @@
 # Deploy your Kafka Stack with Okteto
 
-Click the button below to deploy Zookeeper, Kafka, and Kafdrop using Okteto.
-
-[![Develop on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/deploy)
-
-You can also do it from your terminal using the [Okteto CLI](https://github.com/okteto/okteto).
+Deploy Zookeeper, Kafka, and Kafdropfrom your terminal using the [Okteto CLI](https://github.com/okteto/okteto).
 
 ```
 okteto up
