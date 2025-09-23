@@ -3,7 +3,7 @@ from kafka import KafkaProducer
 import json
 
 app = Flask(__name__)
-producer = KafkaProducer(bootstrap_servers='kafka:9092')
+producer = KafkaProducer(bootstrap_servers='kafka:19092')
 topic_name = 'messages'
 
 @app.route('/', methods=["POST"])
